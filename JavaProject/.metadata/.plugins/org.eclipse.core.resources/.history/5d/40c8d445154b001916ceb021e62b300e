@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	<mapper namespace="UserReg">
+		<resultMap id="User_Reg" type="com.spring.user.vo.InsertMemVO">
+			<result property="idx" column="IDX" javaType="string"/>
+			<result property="userId" column="USERID" javaType="string"/>
+			<result property="userPwd" column="USERPWD" javaType="string"/>
+		</resultMap>
+	
+	
+		<!-- 회원가입 -->
+		<insert id="UserInsert" parameterType="com.spring.user.vo.InsertMemVO">
+			INSERT INTO ADDMEMBER(USERID, USERPWD)
+			VALUES('${userId}', '${userPwd}')
+		</insert>
+	</mapper>

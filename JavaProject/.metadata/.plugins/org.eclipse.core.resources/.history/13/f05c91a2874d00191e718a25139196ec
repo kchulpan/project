@@ -1,0 +1,31 @@
+package com.spring.user.service.impl;
+
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.spring.user.AES256Util.AES256Util;
+import com.spring.user.dao.MemberDao;
+import com.spring.user.service.MemberService;
+
+@Service("memberService")
+public class MemberServiceImpl implements MemberService{
+
+	@Autowired
+	private MemberDao memberDao;
+	
+	@Override
+	public void insertMember(HashMap<String, Object> hashmap) throws UnsupportedEncodingException {
+		
+		String userPwd = (String) hashmap.get("userPwd");
+		
+		AES256Util aES256Util = new AES256Util("newMemberInsertKey");
+		
+		hashmap.put("userPwd", aES256Util);
+		
+		
+		memberDao.insertMember(hashmap);
+	}
+
+}

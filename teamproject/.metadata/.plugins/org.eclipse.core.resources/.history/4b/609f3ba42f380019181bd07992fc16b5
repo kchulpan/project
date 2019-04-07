@@ -1,0 +1,7 @@
+package dynamic_beat11;
+
+import java.awt.event.KeyAdapter;
+
+public class KeyListner extends KeyAdapter{
+
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="screenDraw" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="screendraw"/>
+			<item value="PAINTCOMPONENTS"/>
+			<item value="GAMESTART"/>
+			<item value="4460"/>
+			<item value="screenDraw"/>
+			<item value="trackList"/>
+			<item value="setfocusable"/>
+			<item value="dropnotes"/>
+			<item value="gamestart"/>
+			<item value="judgementLine"/>
+			<item value="noteLIst"/>
+			<item value="static"/>
+			<item value="easy"/>
+			<item value="isGameScreen"/>
+			<item value="game"/>
+		</list>
+		<list key="replacehistory">
+			<item value="selectTrack"/>
+			<item value="background"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="340" key="DIALOG_WIDTH"/>
+		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
+		<item value="454" key="DIALOG_HEIGHT"/>
+		<item value="1261" key="DIALOG_X_ORIGIN"/>
+		<item value="585" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

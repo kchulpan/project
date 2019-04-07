@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+  <mapper namespace="apply">
+  	<!-- 결과담을 Map 작성 -->
+  
+  	   	<resultMap id="ApplyGetList" type="free.applygetlist.vo.ApplyGetListVo">
+  		<result property="rownum"		 column="ROWNUM" 		javaType="int"/>
+  		<result property="project_id"	 column="PROJECT_ID" 	javaType="string"/>
+  		<result property="project_nm"	 column="PROJECT_NM" 	javaType="string"/>
+  		<result property="freeln_id"	 column="FREELN_ID" 	javaType="string"/>
+  		<result property="freeln_nm"	 column="FREELN_NM" 	javaType="string"/>
+  		<result property="apply_date"	 column="APPLY_DATE" 	javaType="string"/>
+  		<result property="apply_yn"	 	 column="APPLY_YN" 		javaType="string"/>
+
+  		</resultMap>
+  		
+   	<select id="getList"
+  			statementType="CALLABLE"
+  			parameterType= "hashmap"
+  			resultType="free.applygetlist.vo.ApplyGetListVo">
+		{CALL PKG_APPLYPROJ.PROC_APPLYPROJ_LIST(
+		#{result,  mode=OUT, jdbcType=CURSOR, javaType=RESULTSET, resultMap=ApplyGetList}
+		)}
+  	</select>
+  	
+   	<update id="getUpdate" statementType="CALLABLE">
+  		{CALL PKG_APPLYPROJ.PROC_APPLYPROJ_UPDATE(
+		#{project_id, mode=IN, jdbcType=VARCHAR},
+		#{freeln_id, mode=IN, jdbcType=VARCHAR}
+		)}
+  	</update>
+
+  </mapper>

@@ -1,0 +1,4 @@
+//com.springsource.config.ui.prefs.activePageIndex\:/Spring03/webapp/WEB-INF/dispatcher-servlet.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/WebDevelopment/webapp/WEB-INF/dispatcher-servlet.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/testProject/webapp/WEB-INF/spring-servlet.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+eclipse.preferences.version=1

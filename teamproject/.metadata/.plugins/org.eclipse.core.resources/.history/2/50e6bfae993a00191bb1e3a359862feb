@@ -1,0 +1,8 @@
+package dynamic_beat14;
+
+public class Beat {
+	private int time;
+	private String noteName;
+	
+	
+}

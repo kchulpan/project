@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;WebDevelopment/src/main/java/com/spring/user/controller/IndexController.java&apos; to &apos;NewMemberController.java&apos;" description="Rename resource &apos;IndexController.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/java/com/spring/user/controller/IndexController.java" name="NewMemberController.java" stamp="1552717691731" updateReferences="true"/>
+</session>

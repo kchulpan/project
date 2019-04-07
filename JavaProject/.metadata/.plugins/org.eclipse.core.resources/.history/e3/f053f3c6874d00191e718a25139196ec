@@ -1,0 +1,9 @@
+package com.spring.user.service;
+
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+
+
+public interface MemberService {
+	public void insertMember(HashMap<String, Object> hashmap) throws UnsupportedEncodingException;
+}

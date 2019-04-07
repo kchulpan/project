@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>웹개발</title>
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body class="wrap">
+	<div class="loginBox">
+		<h3 class="title">Sign In</h3>
+		<form action="/addMember" method="GET">
+			<div class="inputBox">
+				email : <input type="email" name="userId" required/>
+			</div>
+			<div class="inputBox">
+				password : <input type="password" name="userPwd" required/>
+			</div>
+			<div class="inputBox">
+				password confirm : <input type="password" name="pwdconfirm" required/>
+			</div>
+			<div>
+				<button class="btn_summit">회원가입</button>
+				<button class="btn_reset" type="reset">취소</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

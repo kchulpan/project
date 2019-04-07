@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>웹개발</title>
+<style>
+
+</style>
+</head>
+<body class="wrap">
+	<div class="loginBox">
+		<h3 class="title">Sign In</h3>
+		<form action="/addMember" method="GET">
+			<div class="inputBox">
+				email : <input type="email" name="userId" required/>
+			</div>
+			<div class="inputBox">
+				password : <input type="password" name="userPwd" required/>
+			</div>
+			<div class="inputBox">
+				password confirm : <input type="password" name="pwdconfirm" required/>
+			</div>
+			<div>
+				<button class="btn_summit">회원가입</button>
+				<button class="btn_reset" type="reset">취소</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

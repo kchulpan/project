@@ -1,0 +1,12 @@
+package dynamic_beat11;
+
+import java.awt.event.KeyAdapter;
+
+public class KeyListner extends KeyAdapter{
+	@Override
+	public void keyPressed(KeyEvent e) {
+		if(e.getKeyCode() == KeyEvente.VK_S) {
+			
+		}
+	}
+}
