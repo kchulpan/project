@@ -50,9 +50,11 @@
 			var paddleWidth = 75;
 			var paddleX = (canvas.width-paddleWidth)/2;
 			
+			// 이벤트 핸들러 변수
 			var rightPressed = false;
 			var leftPressed = false;
 			
+			// 벽돌 만들기 변수
 			var brickRowCount = 3;
 			var brickColumnCount = 5;
 			var brickWidth = 75;
@@ -61,8 +63,28 @@
 			var brickOffsetTop = 30;
 			var brickOffsetLeft = 30;
 			
+			// 생명 갯수
+			var lives = 3;
+			
+			// 벽돌 위치 배열
+			var bricks = [];
+			for(var c=0; c < brickColumnCount; c++){
+				bricks[c]=[];
+				for(var r=0; r < brickRowCount; r++){
+					bricks[c][r] = { x:0, y:0, status:1};
+				}
+			}
+			
+			// 점수 counting
+			var score = 0;
+			
+			// 키 다운 이벤트
 			document.addEventListener("keydown", keyDownHandler, false);
+			// 키 업 이벤트
 			document.addEventListener("keyup", keyUpHandler, false);
+			
+			// 마우스 이동 이벤트
+			document.addEventListener("mousemove", mouseMoveHandler, false);
 			
 			function keyDownHandler(e){
 				if(e.keyCode == 39){
@@ -78,6 +100,71 @@
 				}else if(e.keyCode == 37){
 					leftPressed = false;
 				}
+			}
+			
+			function mouseMoveHandler(e){
+				var relativeX = e.clientX - canvas.offsetLeft;
+				if(relativeX > 0 && relativeX < canvas.width){
+					paddleX = relativeX - paddleWidth/2;
+				}
+			}
+			
+			// 벽돌과 공의 충돌 감지 함수
+			/* 아래꺼랑 비교해볼것
+			function collisionDetection(){
+				for(var c = 0; c < brickColumnCount; c++){
+					for(var r = 0; r < brickRowCount; r++){
+						var b = bricks[c][r];
+						if(b.status == 1){
+							if(x > b.x && x < b.x + brickWidth && b.y && y < b.y + brickHeight){
+								dy = -dy;
+								b.status = 0;
+								score++;
+								
+								// 벽돌을 모두 제거했을시 win 메세지 출력
+								if(score == brickRowcount * brickColumnCount){
+									alert("축하합니다, 성공");
+									document.location.reload();
+									clearInterval(interval);
+								}
+							}
+						}
+					}
+				}
+			}*/
+			
+			function collisionDetection() {
+				for(var c=0; c<brickColumnCount; c++) {
+					for(var r=0; r<brickRowCount; r++) {
+						var b = bricks[c][r];
+						if(b.status == 1) {
+							if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
+								dy = -dy;
+								b.status = 0;
+								score++;
+								if(score == brickRowCount*brickColumnCount) {
+									alert("YOU WIN, CONGRATULATIONS!");
+									document.location.reload();
+									clearInterval(interval); // Needed for Chrome to end game
+								}
+							}
+						}
+					}
+				}
+			} 
+			
+			// 점수 매기기 함수
+			function drawScore(){
+				ctx.font = "16px Arial";
+				ctx.fillStyle = "#0095DD";
+				ctx.fillText("Score : " + score, 8, 20);
+			}
+			
+			// 생명 갯수 보여 주기
+			function drawLives(){
+				ctx.font = "16px Arial";
+				ctx.fillStyle = "#0095DD";
+				ctx.fillText("Lives : " + lives, canvas.width-65, 20);
 			}
 			
 			// 공그리기
@@ -98,12 +185,37 @@
 				ctx.closePath();
 			}
 			
+			// 벽돌 그리기
+			function drawBricks(){
+				for(var c = 0; c < brickColumnCount; c++){
+					for(var r = 0; r < brickRowCount; r++){
+						if(bricks[c][r].status == 1){
+							var brickX = (c*(brickWidth + brickPadding)) + brickOffsetLeft;
+							var brickY = (r*(brickHeight + brickPadding)) + brickOffsetTop;
+							bricks[c][r].x = brickX;
+							bricks[c][r].y = brickY;
+							ctx.beginPath();
+							ctx.rect(brickX, brickY, brickWidth, brickHeight);
+							ctx.fillStyle = "#0095DD";
+							ctx.fill();
+							ctx.closePath();
+						}
+					}
+				}
+			}
+			
+
+			
 			// 공이 움직이는 좌표 
 			function draw(){
 				//0,0,480,320 사각형안에 있는 모든것을 지움
 				ctx.clearRect(0,0, canvas.width, canvas.height);
+				drawBricks();
 				drawBall();
 				drawPaddle();
+				drawScore();
+				drawLives();
+				collisionDetection();
 				//좌, 우 벽에 부딪히면 x 방향이 바뀐다 
 				if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
 					dx = -dx;
@@ -117,8 +229,17 @@
 					if(x > paddleX && x < paddleX + paddleWidth){
 						dy = -dy;
 					}else{
-						alert("GAME OVER");
-						document.location.reload();
+						lives--;
+						if(!lives){
+							alert("GAME OVER");
+							document.location.reload();
+						}else{
+							x = canvas.width/2;
+							y = canvas.height-30;
+							dx = 2;
+							dy = -2;
+							paddleX = (canvas.width-paddleWidth)/2;
+						}	
 					}
 				}
 				
@@ -129,10 +250,11 @@
 				}
 				x += dx;
 				y += dy;
+				requestAnimationFrame(draw);
 			}
-			
+			draw();
 			// 10밀리초마다 draw 함수를 반복실행
-			setInterval(draw, 10);
+			//setInterval(draw, 10);
 		</script>
 	</body>
 	
