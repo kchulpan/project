@@ -11,9 +11,10 @@ public class IndexController {
 		return "index";
 	}
 	
+	// 회원가입 페이지 이동
 	@RequestMapping("/regmember")
 	public String regMember() {
-		return "/client/addMember";
+		return "client/signUp";
 	}
 	
 	//테스트입니다

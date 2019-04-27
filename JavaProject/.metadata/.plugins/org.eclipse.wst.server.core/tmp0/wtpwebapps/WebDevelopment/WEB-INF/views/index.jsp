@@ -3,54 +3,44 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
 <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+
 <title>Sign in</title>
-
-
-
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-
-
-<!-- 부가적인 테마 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
 <!-- Custom styles for this template -->
 <link href="/css/signin.css" rel="stylesheet">
 
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-
-
 </head>
 
 <body>
-
-	<div class="container">
-
-      <form class="form-signin" action="/signin" method="GET">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" name="userId" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" name="userPwd" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
+      <form action="/signin" method="GET">
+      	<div class="imgcontainer">
+      		<img src="/img/img_avatar.png" alt="imgae_avatar" class="avatar">
+      	</div>
+      	<div class="container">
+	        <label for="inputEmail"><b>Username<b></b></label>
+	        <input type="email" id="inputEmail" name="userId" class="form-control" placeholder="Email address" required autofocus>
+	        
+	        <label for="inputPassword"><b>Password</b></label>
+	        <input type="password" id="inputPassword" name="userPwd" class="form-control" placeholder="Password" required>
+			
+			<button type="submit">Sign in</button>       
           <label>
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <div class="container">
+       		<a href="/regmember"><button type="button" class="signupbtn">Sign up</button></a>
+        	<button type="button" class="cancelbtn">Cancel</button>
+        </div>
         
-        <a href="/regmember" class="btn btn-lg btn-primary btn-block">Sign up</a>
+        <span class="psw"><a href="#">Forgot password?</a></span>
+        
+        
+       <!--  <a href="/regmember" class="btn btn-lg btn-primary btn-block">Sign up</a> -->
 
       </form>
-        <a href="/excel" class="btn btn-lg btn-primary btn-block">엑셀다운로드</a>
+        <!-- <a href="/excel" class="btn btn-lg btn-primary btn-block">엑셀다운로드</a> -->
 		
     </div> <!-- /container -->
 </body>
